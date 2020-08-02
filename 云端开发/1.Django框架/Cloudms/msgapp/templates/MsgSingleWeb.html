@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">    <!lang规定元素内容的语言>
+    <head>
+        <meta charset="UTF-8">  <!在HTML中meta标签没有结束标签,提供有关页面的元信息>
+        <title>云端留言板（1）首页</title> <!title元素可定义文档的标题,通常把它放置在浏览器窗口的标题栏或状态栏上>
+    </head>
+    <body>
+        <h1>提交留言功能区</h1>   <!h1- h6 标签可定义标题。h1 定义最大的标题。h6定义最小的标题>
+        <form action="/msggate/" method="POST"> <!form标签用于为用户输入创建 HTML 表单,表单用于向服务器传输数据>
+            <!action规定当提交表单时向何处发送表单数据,method规定用于发送 form-data 的 HTTP 方法>
+            发送方<input type="text" name="userA" /><br> <!input标签用于搜集用户信息。根据不同的 type 属性值，输入字段拥有很多种形式:文本字段、复选框\按钮等等>
+            接收方<input type="text" name="userB" /><br><!type规定 input 元素的类型。>
+            消息文<input type="text" name="msg" /><br><!name定义 input 元素的名称。>
+            <input type="submit" value="留言提交"/><!value规定 input 元素的值。>
+            {% csrf_token %}
+        </form>
+        <h1>获取留言功能区</h1>
+        <form action="/msggate/" method="GET">
+            接收方<input type="text" name="userC" /><br>
+            <input type="submit" value="留言获取"><!在 HTML 中input标签没有结束标签。>
+        </form>
+        <table border="1"><!table标签定义 HTML 表格,tr 元素定义表格行，th 元素定义表头，td 元素定义表格单元,border规定表格边框的宽度>
+            <thead><!thead标签定义表格的表头,用于组合HTML表格的表头内容。thead应该与tbody和tfoot结合使用,tbody用于对表格主体内容分组,tfoot用于对表格的表注（页脚）内容分组>
+                <th>留言时间</th>
+                <th>留言来源</th>
+                <th>留言消息</th>
+            </thead>
+            <br>
+            <tbody>
+                {% for line in data %}
+                <tr>
+                    <td>{{line.time}}</td>
+                    <td align="center">{{line.userA}}</td>
+                    <td>{{line.msg}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
