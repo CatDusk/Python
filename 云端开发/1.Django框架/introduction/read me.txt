@@ -1,0 +1,11 @@
+目录结构：introduction/      外层目录可改名
+	introduction/       工程目录
+		__init__.py 定义为包的文件
+		settings.py 配置文件
+		urls.py 路由文件
+		wsgi.py基于WSGY的Web服务器配置文件
+	manage.py 与Django工程交互的命令行工具
+
+命令行工具：django-admin
+	manage.py
+	python -m django 
