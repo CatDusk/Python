@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="demo.css"> <!CSS的外部模式>
+        <script>
+            function displayDate()
+            {
+                document.getElementById("time").innerHTML=Date();
+            }
+        </script>
+    </head>
+    <body>
+        <p id="time">这里将显示时间</p>
+        <ul>
+            <li>Python网络爬虫</li> 
+            <li>Python云端开发</li>
+            <li>Python科学计算</li>
+        </ul>
+        <button type="button" onclick="displayDate()">显示时间</button>
+    </body>
+</html>
